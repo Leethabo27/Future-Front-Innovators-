@@ -9,23 +9,9 @@
       "source": "/contacts.html",
       "destination": "/contacts",
       "permanent": true
-    },
-    {
-      "source": "/home.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/Privacy.html",
-      "destination": "/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/terms.html",
-      "destination": "/terms",
-      "permanent": true
     }
   ],
   "cleanUrls": true,
   "trailingSlash": false
 }
+
