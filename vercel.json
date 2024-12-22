@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/about%20us.html", "destination": "/about-us", "permanent": true },
+    { "source": "/more-projects.html", "destination": "/more-projects", "permanent": true },
+    { "source": "/home.html", "destination": "/", "permanent": true },
+    { "source": "/Privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/terms.html", "destination": "/terms", "permanent": true },
+    { "source": "/contacts.html", "destination": "/contacts", "permanent": true }
+  ]
+}
