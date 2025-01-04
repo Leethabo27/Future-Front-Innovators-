@@ -3,12 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Future Front Innovators</title>
+    <meta
+      name="description"
+      content="Future Front Innovators - Your trusted partner in architectural and innovative solutions."
+    />
+    <meta
+      name="keywords"
+      content="architecture, innovation, design, construction, Future Front Innovators"
+    />
+    <meta name="author" content="Future Front Innovators" />
+    <meta
+      property="og:title"
+      content="Future Front Innovators - Building Beyond Boundaries"
+    />
+    <meta
+      property="og:description"
+      content="Explore our work and discover how we can help you bring your architectural ideas to life."
+    />
+    <meta property="og:image" content="path-to-your-image.jpg" />
+    <meta property="og:type" content="website" />
+    <title>Future Front Innovators - Home</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* General Styles */
       * {
         margin: 0;
         padding: 0;
@@ -17,35 +37,60 @@
 
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #000000;
-        color: #faf8f8;
-        text-align: center;
+        background-color: #f9f9f9;
+        color: #333;
         overflow-x: hidden;
       }
 
+      /* Header Section */
       header {
-        background-color: #fdfafa;
-        padding: 40px 0;
-        color: #080808;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("path-to-hero-image.jpg") no-repeat center center/cover;
+        color: #fafafa;
+        text-align: center;
+        padding: 60px 20px;
       }
 
       header img {
-        width: 150px;
+        width: 120px;
         height: auto;
         margin-bottom: 20px;
       }
 
       header h1 {
         font-family: "Playfair Display", serif;
-        font-size: 3rem;
-        color: #0079fa;
-        margin: 10px 0;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
       }
 
+      header p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        background-color: #0079fa;
+        padding: 15px 30px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .cta-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Main Content Section */
       .home-container {
-        padding: 40px;
-        max-width: 900px;
+        padding: 40px 20px;
+        max-width: 1200px;
         margin: 0 auto;
+        text-align: center;
       }
 
       .home-container h2 {
@@ -57,33 +102,29 @@
 
       .home-container p {
         font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      .home-container img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
         margin: 20px 0;
-        line-height: 1.6;
+        border-radius: 10px;
       }
 
-      .go-home-button {
-        background-color: #007bff;
-        padding: 15px 30px;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 20px;
-      }
-
-      .go-home-button:hover {
-        background-color: #0056b3;
-      }
-
+      /* Footer Section */
       footer {
         background-color: #333;
-        color: #faf8f8;
+        color: #fafafa;
         padding: 20px 0;
-        margin-top: 40px;
+        text-align: center;
       }
 
       footer p {
         font-size: 1rem;
+        margin-bottom: 10px;
       }
 
       footer a {
@@ -94,29 +135,63 @@
       footer a:hover {
         text-decoration: underline;
       }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+
+        header p {
+          font-size: 1rem;
+        }
+
+        .home-container h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 40px 10px;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        header p {
+          font-size: 0.9rem;
+        }
+
+        .home-container h2 {
+          font-size: 1.8rem;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
       <img src="future front logo01.png" alt="Future Front Innovators Logo" />
       <h1>Future Front Innovators</h1>
+      <p>Building Beyond Boundaries - Innovating Your Future</p>
+      <a href="#about-us" class="cta-button">Learn More</a>
     </header>
 
-    <div class="home-container">
+    <div class="home-container" id="about-us">
       <h2>Welcome to Future Front Innovators</h2>
       <p>
-        Your trusted partner in bringing your architectural and innovative ideas
-        to life. Explore our work and discover how we can help you build a
-        future beyond boundaries.
+        We are passionate about bringing your architectural dreams and
+        innovative ideas to life. With years of expertise, we strive to exceed
+        your expectations, one project at a time.
       </p>
-
-      <a href="index.html" class="go-home-button">Learn more</a>
+      <img src="image16.jpg" alt="Our Projects" />
     </div>
 
     <footer>
       <p>&copy; 2025 Future Front Innovators. All Rights Reserved.</p>
       <p>
-        <a href="Privacy.html">Privacy Policy</a> |
+        <a href="privacy.html">Privacy Policy</a> |
         <a href="terms.html">Terms of Service</a>
       </p>
     </footer>
