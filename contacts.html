@@ -11,35 +11,112 @@
     <style>
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #ffffff;
-        color: #5e41ff;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #818283;
+        color: #fff;
+        padding: 20px 0;
         text-align: center;
+      }
+      header img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+      header h1 {
+        font-family: "Playfair Display", serif;
+        margin: 0;
+        font-size: 2rem;
       }
 
       .contact-us-container {
         padding: 40px;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
       }
       .contact-us-container h2 {
         font-family: "Playfair Display", serif;
         font-size: 2.5rem;
         color: #0079fa;
+        margin-bottom: 20px;
       }
       .contact-us-container p {
-        font-size: 1.1rem;
-        margin: 20px 0;
+        font-size: 1rem;
         line-height: 1.6;
+        margin-bottom: 20px;
+        color: #555;
       }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      form label {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333;
+      }
+      form input,
+      form textarea {
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      form button {
+        background-color: #0079fa;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      form button:hover {
+        background-color: #0056b3;
+      }
+
       .go-home-button {
-        background-color: #5745f8;
+        background-color: #0079fa;
         padding: 15px 30px;
         color: white;
         text-decoration: none;
         border-radius: 5px;
         display: inline-block;
-        margin-top: 20px;
+        margin-top: 30px;
       }
       .go-home-button:hover {
         background-color: #0056b3;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #0079fa;
+        color: #fff;
+        margin-top: 40px;
+      }
+      footer .socials {
+        margin-top: 10px;
+      }
+      footer .socials a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1rem;
+      }
+      footer .socials a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -52,11 +129,36 @@
     <div class="contact-us-container">
       <h2>Contact Us</h2>
       <p>
-        For inquiries, project collaboration, or any questions, feel free to
-        reach out to us. We're here to help you bring your ideas to life.
+        Have a question or want to discuss a project? We’d love to hear from
+        you. Fill out the form below, or reach us directly using the contact
+        details provided.
       </p>
-      <p>Phone: +27 716 99 2698</p>
+      <form action="https://formspree.io/f/mbllpylr" method="POST">
+        <label for="email">
+          Your email:
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </label>
+        <label for="message">
+          Your message:
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Type your message here"
+            required
+          ></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+      </form>
 
+      <p>Alternatively, you can call us:</p>
+      <p><strong>Phone:</strong> +27 716 99 2698</p>
       <a href="home.html" class="go-home-button">Go Back to Home</a>
     </div>
 
