@@ -1,7 +1,30 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Future Front Innovators is dedicated to innovative projects, creating structures that reflect passion and expertise. We specialize in modern architecture and landscape design."
+    />
+    <meta
+      name="keywords"
+      content="architecture, building, design, projects, construction, modern office, residential villa, urban landscape"
+    />
+    <meta property="og:title" content="Future Front Innovators" />
+    <meta
+      property="og:description"
+      content="From Passion to Structure: Building Beyond Boundaries"
+    />
+    <meta property="og:image" content="path-to-image.jpg" />
+    <meta property="og:url" content="https://www.futurefrontinnovators.com" />
+    <meta name="twitter:title" content="Future Front Innovators" />
+    <meta
+      name="twitter:description"
+      content="From Passion to Structure: Building Beyond Boundaries"
+    />
+    <meta name="twitter:image" content="path-to-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Future Front Innovators</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -10,55 +33,11 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <body>
-      <script>
-        // Confetti Effect
-        function createConfetti() {
-          const confettiContainer = document.createElement("div");
-          confettiContainer.style.position = "fixed";
-          confettiContainer.style.top = "0";
-          confettiContainer.style.left = "0";
-          confettiContainer.style.width = "100%";
-          confettiContainer.style.height = "100%";
-          confettiContainer.style.pointerEvents = "none";
-          document.body.appendChild(confettiContainer);
-
-          for (let i = 0; i < 50; i++) {
-            const confetti = document.createElement("div");
-            confetti.style.position = "absolute";
-            confetti.style.width = "10px";
-            confetti.style.height = "10px";
-            confetti.style.backgroundColor = `hsl(${
-              Math.random() * 360
-            }, 70%, 60%)`;
-            confetti.style.borderRadius = "50%";
-            confetti.style.top = `${Math.random() * 100}%`;
-            confetti.style.left = `${Math.random() * 100}%`;
-            confetti.style.opacity = Math.random();
-            confetti.style.animation = `fall ${
-              Math.random() * 3 + 2
-            }s ease-in-out infinite`;
-
-            confettiContainer.appendChild(confetti);
-          }
-        }
-
-        // Trigger the confetti on page load
-        window.onload = () => createConfetti();
-      </script>
-    </body>
     <style>
-      @keyframes fall {
-        0% {
-          transform: translateY(-100vh) rotate(0deg);
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-        }
-      }
+      /* General Styles */
       * {
         margin: 0;
         padding: 0;
@@ -67,64 +46,80 @@
 
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #ffffff;
+        background-color: #f4f4f4;
         color: #333;
-        text-align: center;
+        line-height: 1.6;
       }
 
       header {
         background-color: #ffffff;
-        color: #030303;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        padding: 20px 10%;
+        text-align: center;
+        border-bottom: 2px solid #eee;
       }
 
       header img {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+        max-width: 80px;
+        height: auto;
       }
 
       header h1 {
         font-family: "Playfair Display", serif;
         font-size: 2.5rem;
-        letter-spacing: 1px;
-      }
-      .new-year-banner {
-        background-color: #4c5dfc;
-        font-family: "Playfair Display", serif;
-        font-size: 2rem;
-        color: #ffffff;
-        text-shadow: 0 0 10px #b8a2ad, 0 0 20px #505bf8, 0 0 30px #76b0f3,
-          0 0 40px #8766ff, 0 0 50px #9d59f5;
-        animation: glow 2s infinite alternate;
+        color: #0056b3;
+        margin-top: 10px;
       }
 
-      @keyframes glow {
-        0% {
-          text-shadow: 0 0 10px #7e50ff, 0 0 20px #6447e6, 0 0 30px #d0df09,
-            0 0 40px #ff00ff, 0 0 50px #613aee;
-        }
-        100% {
-          text-shadow: 0 0 20px #9f92eb, 0 0 30px #5079e7, 0 0 40px #1b1238,
-            0 0 50px #95a2be, 0 0 60px #6a7c06;
-        }
+      nav {
+        display: flex;
+        justify-content: center;
+        background: #0056b3;
+        padding: 10px 0;
       }
 
-      .video-container {
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #070707;
+      }
+
+      /* Video Background */
+      .video-background-container {
         position: relative;
-        width: 100%;
-        height: 50vh;
+        height: 70vh;
         overflow: hidden;
       }
 
-      .video-container video {
+      .video-background-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        z-index: -1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Add a dark overlay for better text readability */
+        z-index: 1;
       }
 
       .slogan {
@@ -132,53 +127,24 @@
         font-size: 2rem;
         margin: 20px 0;
         color: #0079fa;
+        text-align: center;
         animation: fadeIn 10s ease-in-out;
       }
 
-      .cta-button {
-        background-color: #007bff;
-        padding: 15px 30px;
-        font-size: 1rem;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 20px;
-      }
-
-      nav {
-        margin: 20px 0;
-        background: #ffffff;
-        padding: 10px;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #007bff;
-        font-size: 1rem;
-        margin: 0 15px;
-        font-weight: bold;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
       .projects-gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
         padding: 20px;
       }
 
       .project-card {
-        background: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
-        transition: transform 0.3s ease;
-        width: 300px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
       }
 
       .project-card:hover {
@@ -192,9 +158,9 @@
       }
 
       .project-card h3 {
-        font-size: 1.3rem;
-        margin: 10px;
-        color: #333;
+        padding: 15px;
+        font-size: 1.2rem;
+        color: #0056b3;
       }
 
       .explore-button {
@@ -209,26 +175,56 @@
       }
 
       footer {
-        background-color: #000;
-        color: #fff;
-        padding: 20px 0;
+        background-color: #01172e;
+        color: white;
+        padding: 20px 10%;
         text-align: center;
       }
 
-      footer .socials a {
-        color: #fff;
-        margin: 0 10px;
-        font-size: 1.2rem;
+      footer a {
+        color: #0957ce;
+        text-decoration: none;
       }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        header {
+          padding: 20px 5%;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        header h1 {
+          font-size: 2rem;
+        }
+        nav a {
+          margin: 0 10px;
+          font-size: 0.9rem;
+        }
+        .slogan {
+          font-size: 1.5rem;
+        }
+        .projects-gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        .project-card img {
+          height: 150px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        nav {
+          flex-direction: column;
+        }
+        .slogan {
+          font-size: 1.2rem;
+        }
+        .projects-gallery {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -238,21 +234,20 @@
       <img src="future front logo01.png" alt="Future Front Innovators Logo" />
       <h1>Future Front Innovators</h1>
     </header>
-    <div class="new-year-banner">
-      🎉Here’s to building a future as bold as our designs – Happy New Year
-      2025! 🎉
-    </div>
 
     <nav>
       <a href="/">Home</a>
       <a href="/about-us">About Us</a>
-      <a href="/contacts">Contact Us</a>
+      <a href="/projects">Projects</a>
+      <a href="/contact-us">Contact Us</a>
     </nav>
-    <div class="video-container">
+
+    <div class="video-background-container">
       <video autoplay muted loop>
         <source src="ffi video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div class="overlay"></div>
     </div>
 
     <div class="slogan">
@@ -260,17 +255,20 @@
       Building Beyond Boundaries
     </div>
 
-    <section class="section projects" id="projects">
-      <h2>Our Projects</h2>
+    <section>
+      <h2 style="text-align: center; margin-bottom: 20px">Our Projects</h2>
       <div class="projects-gallery">
         <div class="project-card">
-          <img src="project1.jpg" alt="Project 1" />
+          <img src="project1.jpg" alt="Modern Office Building" />
+          <h3>Modern Office Building</h3>
         </div>
         <div class="project-card">
-          <img src="image24.jpg" alt="Project 2" />
+          <img src="image24.jpg" alt="Luxury Residential Villa" />
+          <h3>Luxury Residential Villa</h3>
         </div>
         <div class="project-card">
-          <img src="pic3456feg.jpg" alt="Project 3" />
+          <img src="pic3456feg.jpg" alt="Urban Landscape Design" />
+          <h3>Urban Landscape Design</h3>
         </div>
       </div>
       <a href="more-projects.html" class="explore-button"
@@ -278,31 +276,26 @@
       >
     </section>
 
-    <div class="projects-gallery">
-      <div class="project-card"></div>
-    </div>
-    <section>
-      <footer>
-        <p>&copy; 2025 Future Front Innovators. All Rights Reserved.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/futurefrontinnovatorspty/"
-            >Instagram</a
-          >
-          <a href="https://www.facebook.com/profile.php?id=61555794677487"
-            >Facebook</a
-          >
-        </div>
-        <p style="margin-top: 20px; color: #ff0080">
-          Designed by
-          <a
-            href="https://www.lethabodesignstudio.co.za/"
-            style="color: #ff0080; text-decoration: none"
-            target="_blank"
-          >
-            Lethabo Design Studio
-          </a>
-        </p>
-      </footer>
-    </section>
+    <footer>
+      <p>&copy; 2025 Future Front Innovators. All Rights Reserved.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/futurefrontinnovatorspty/"
+          ><i class="fab fa-instagram"></i> Instagram</a
+        >
+        <a href="https://www.facebook.com/profile.php?id=61555794677487"
+          ><i class="fab fa-facebook"></i> Facebook</a
+        >
+      </div>
+      <p style="margin-top: 20px; color: #ffffff">
+        Designed by
+        <a
+          href="https://www.lethabodesignstudio.co.za/"
+          style="color: #ff0080; text-decoration: none"
+          target="_blank"
+        >
+          Lethabo Design Studio
+        </a>
+      </p>
+    </footer>
   </body>
 </html>
