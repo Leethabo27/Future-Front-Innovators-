@@ -89,6 +89,33 @@
       nav a:hover {
         color: #070707;
       }
+      /* Toggle button */
+      .toggle-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        display: none; /* Hidden by default */
+      }
+
+      /* Hide nav links by default on small screens */
+      .nav-links {
+        display: none;
+      }
+
+      /* Show nav links and button on small screens */
+      @media (max-width: 600px) {
+        .toggle-btn {
+          display: block;
+        }
+
+        .nav-links.show {
+          display: flex;
+          flex-direction: column;
+        }
+      }
 
       /* Video Background */
       .video-background-container {
@@ -235,15 +262,22 @@
       <h1>Future Front Innovators</h1>
     </header>
 
+    <button class="toggle-btn" onclick="toggleNav()">☰</button>
     <nav>
-
-     <a href="home.html" class="go-home-button">Home</a>
-
-      <a href="/about-us">About Us</a>
-      
-      <a href="/contacts">Contact Us</a>
+      <div class="nav-links">
+        <a href="home.html" class="go-home-button">Home</a>
+        <a href="/about-us">About Us</a>
+        <a href="/contacts">Contact Us</a>
+      </div>
     </nav>
 
+    <script>
+      // JavaScript to toggle navigation visibility
+      function toggleNav() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("show");
+      }
+    </script>
     <div class="video-background-container">
       <video autoplay muted loop>
         <source src="ffi video.mp4" type="video/mp4" />
