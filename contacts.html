@@ -8,113 +8,166 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #f9f9f9;
+        background-color: #000000;
         color: #333;
         margin: 0;
         padding: 0;
       }
 
       header {
-        background-color: #818283;
+        background-color: #000000;
         color: #fff;
-        padding: 20px 0;
+        padding: 30px 0;
         text-align: center;
       }
+
       header img {
-        max-width: 150px;
+        max-width: 100px;
         margin-bottom: 10px;
       }
+
       header h1 {
         font-family: "Playfair Display", serif;
         margin: 0;
-        font-size: 2rem;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
       }
 
       .contact-us-container {
-        padding: 40px;
-        max-width: 800px;
-        margin: 0 auto;
+        padding: 50px 20px;
+        max-width: 900px;
+        margin: 40px auto;
         background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 15px;
       }
+
       .contact-us-container h2 {
         font-family: "Playfair Display", serif;
-        font-size: 2.5rem;
-        color: #0079fa;
-        margin-bottom: 20px;
+        font-size: 2.8rem;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 30px;
       }
+
       .contact-us-container p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
+        font-size: 1.05rem;
         color: #555;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 30px;
       }
 
       form {
         display: flex;
         flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #444;
+      }
+
+      input,
+      textarea {
+        margin-top: 5px;
+        padding: 14px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        transition: border-color 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #000911;
+        outline: none;
+      }
+
+      button {
+        align-self: center;
+        padding: 14px 30px;
+        background-color: #050505;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #020203;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
         gap: 15px;
       }
-      form label {
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         font-size: 1rem;
-        font-weight: 500;
-        color: #333;
+        color: #444;
       }
-      form input,
-      form textarea {
-        padding: 12px;
-        font-size: 1rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      form button {
-        background-color: #0079fa;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-      }
-      form button:hover {
-        background-color: #0056b3;
+
+      .info-item i {
+        color: #000000;
+        width: 20px;
+        height: 20px;
       }
 
       .go-home-button {
-        background-color: #0079fa;
-        padding: 15px 30px;
+        background-color: #000c18;
+        padding: 12px 24px;
         color: white;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 6px;
+        font-weight: 500;
         display: inline-block;
-        margin-top: 30px;
+        margin: 40px auto 0;
+        text-align: center;
+        transition: background-color 0.3s;
       }
+
       .go-home-button:hover {
-        background-color: #0056b3;
+        background-color: #000307;
       }
 
       footer {
         text-align: center;
-        padding: 20px;
-        background-color: #0079fa;
+        padding: 25px;
+        background-color: #000000;
         color: #fff;
-        margin-top: 40px;
+        margin-top: 60px;
       }
+
       footer .socials {
         margin-top: 10px;
       }
+
       footer .socials a {
         color: #fff;
         text-decoration: none;
-        margin: 0 10px;
-        font-size: 1rem;
+        margin: 0 12px;
+        font-size: 1.1rem;
       }
+
       footer .socials a:hover {
         text-decoration: underline;
       }
@@ -122,48 +175,56 @@
   </head>
   <body>
     <header>
-      <img src="future front logo01.png" alt="Future Front Innovators Logo" />
+      <img src="logo 1.png" alt="Future Front Innovators Logo" />
       <h1>Future Front Innovators</h1>
     </header>
 
     <div class="contact-us-container">
       <h2>Contact Us</h2>
       <p>
-        Have a question or want to discuss a project? We’d love to hear from
-        you. Fill out the form below, or reach us directly using the contact
-        details provided.
+        Whether you're ready to collaborate or just want to say hello, we're
+        here to connect.
       </p>
+
       <form action="https://formspree.io/f/mbllpylr" method="POST">
         <label for="email">
-          Your email:
+          Email Address
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="you@example.com"
             required
           />
         </label>
         <label for="message">
-          Your message:
+          Your Message
           <textarea
             id="message"
             name="message"
             rows="5"
-            placeholder="Type your message here"
+            placeholder="Tell us more about your project..."
             required
           ></textarea>
         </label>
-        <button type="submit">Send Message</button>
+        <button type="submit">📨 Send Message</button>
       </form>
 
-      <p>Alternatively, you can call us:</p>
-      <p><strong>Phone:</strong> +27 716 99 2698</p>
-      <a href="home.html" class="go-home-button">Go Back to Home</a>
+      <div class="contact-info">
+        <div class="info-item"><i data-lucide="phone"></i> +27 71 699 2698</div>
+        <div class="info-item">
+          <i data-lucide="mail"></i> contact@futurefrontinnovators.co.za
+        </div>
+        <div class="info-item">
+          <i data-lucide="map-pin"></i> Pretoria, South Africa
+        </div>
+      </div>
+
+      <a href="home.html" class="go-home-button">← Go Back to Home</a>
     </div>
 
     <footer>
-      <p>&copy; 2025 Future Front Innovators. All Rights Reserved.</p>
+      <p>&copy; 2024 Future Front Innovators. All Rights Reserved.</p>
       <div class="socials">
         <a href="https://www.instagram.com/futurefrontinnovatorspty/"
           >Instagram</a
@@ -173,5 +234,9 @@
         >
       </div>
     </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
