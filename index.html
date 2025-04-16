@@ -47,31 +47,6 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
       defer
     ></script>
-    <script>
-      // Wait for the DOM to fully load
-      document.addEventListener("DOMContentLoaded", function () {
-        // Wait 5 seconds, then hide the loader and show main content
-        setTimeout(() => {
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("main-content").classList.remove("hidden");
-        }, 5000);
-      });
-
-      // Close chatbox when clicking outside or tapping close button
-      document.addEventListener("click", function (e) {
-        const chatBox = document.querySelector(".chatbox");
-        const chatToggle = document.querySelector(".chat-toggle");
-
-        if (!chatBox.contains(e.target) && !chatToggle.contains(e.target)) {
-          chatBox.classList.remove("open"); // 'open' is a class that shows the chatbox
-        }
-      });
-
-      // Optional: Close after sending
-      document.querySelector(".send-btn").addEventListener("click", () => {
-        document.querySelector(".chatbox").classList.remove("open");
-      });
-    </script>
 
     <style>
       .orbitron {
@@ -107,10 +82,7 @@
           opacity: 0.4;
         }
       }
-      /* Optional scrollbar styling for the assistant chat */
-      .chat-scroll::-webkit-scrollbar {
-        width: 6px;
-      }
+
       /* Video Background */
       .video-background-container {
         position: relative;
@@ -152,29 +124,88 @@
         animation: fadeIn 10s ease-in-out;
       }
 
-      .chat-scroll::-webkit-scrollbar-thumb {
-        background-color: #3b82f6;
-        border-radius: 4px;
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
       }
 
-      .chat-scroll::-webkit-scrollbar-track {
-        background: transparent;
+      .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
       }
 
-      /* Animate the assistant button a bit */
-      .assistant-btn {
-        transition: transform 0.2s ease;
+      .chat-toggle {
+        background-color: #1e3a8a;
+        color: white;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 22px;
+        cursor: pointer;
+        box-shadow: 0 0 10px #000;
       }
 
-      .assistant-btn:hover {
-        transform: scale(1.1);
-      }
-      .mobile-nav {
+      .chat-box {
+        width: 300px;
+        height: 400px;
+        background-color: #111827;
+        color: white;
+        border: 2px solid #3b82f6;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         display: none;
       }
 
-      .mobile-nav.open {
-        display: block;
+      .chat-header {
+        padding: 10px;
+        background-color: #1f2937;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        border-bottom: 1px solid #374151;
+      }
+
+      .chat-body {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+        font-size: 14px;
+      }
+
+      #chat-form {
+        border-top: 1px solid #374151;
+      }
+
+      #chat-form input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #1f2937;
+        color: white;
+      }
+
+      .bot-msg,
+      .user-msg {
+        margin-bottom: 10px;
+        padding: 8px 10px;
+        border-radius: 5px;
+        max-width: 90%;
+      }
+
+      .bot-msg {
+        background-color: #2563eb;
+        align-self: flex-start;
+      }
+
+      .user-msg {
+        background-color: #4b5563;
+        align-self: flex-end;
+        text-align: right;
       }
 
       .slideshow-container {
@@ -449,6 +480,30 @@
           </div>
         </div>
 
+        <!-- AI Chat Assistant -->
+        <div class="chatbot-container">
+          <div class="chat-toggle" id="chat-toggle">💬</div>
+          <div class="chat-box" id="chat-box">
+            <div class="chat-header">
+              <span>AI Assistant</span>
+              <span id="chat-close">✖</span>
+            </div>
+            <div class="chat-body" id="chat-body">
+              <div class="bot-msg">
+                Hi 👋 I'm your architecture AI assistant. Ask me anything!
+              </div>
+            </div>
+            <form id="chat-form">
+              <input
+                type="text"
+                id="user-input"
+                placeholder="Ask a question..."
+                autocomplete="off"
+              />
+            </form>
+          </div>
+        </div>
+
         <!-- Explore Button -->
         <div class="mt-10 text-center">
           <a
@@ -458,118 +513,102 @@
           >
         </div>
       </section>
-
-      <!-- AI Assistant Widget -->
-      <div
-        x-data="{ openChat: false, messages: ['Hi there! I\'m your assistant. How can I help?'] }"
-        class="fixed bottom-6 right-6 z-50"
-      >
-        <!-- Toggle Button -->
-        <button
-          @click="openChat = !openChat"
-          class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
+      <footer>
+        <p>&copy; 2024 Future Front Innovators. All Rights Reserved.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/futurefrontinnovatorspty/"
+            ><i class="fab fa-instagram"></i> Instagram</a
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M8 10h.01M12 10h.01M16 10h.01M21 16.5A2.5 2.5 0 0118.5 19H8l-4 4V5.5A2.5 2.5 0 016.5 3h12A2.5 2.5 0 0121 5.5v11z"
-            />
-          </svg>
-        </button>
-
-        <!-- Chat Box -->
-        <div
-          x-show="openChat"
-          x-transition
-          class="mt-2 w-72 bg-gray-900 text-white rounded-lg shadow-lg overflow-hidden"
-        >
-          <div
-            class="p-3 border-b border-gray-700 text-sm font-bold bg-blue-600"
+          <a href="https://www.facebook.com/profile.php?id=61555794677487"
+            ><i class="fab fa-facebook"></i> Facebook</a
           >
-            AI Assistant
-          </div>
-
-          <div class="p-3 h-60 overflow-y-auto text-sm space-y-2">
-            <template x-for="message in messages" :key="message">
-              <div class="bg-gray-800 p-2 rounded-md" x-text="message"></div>
-            </template>
-          </div>
-
-          <div class="p-2 border-t border-gray-700 flex items-center">
-            <input
-              x-ref="input"
-              type="text"
-              placeholder="Type your message..."
-              class="flex-1 p-2 text-black text-sm rounded-md"
-              @keydown.enter="
-             if ($refs.input.value.trim() !== '') {
-               messages.push('You: ' + $refs.input.value);
-               setTimeout(() => {
-                 messages.push('Assistant: I\'ll get back to you shortly!');
-               }, 1000);
-               $refs.input.value = '';
-             }"
-            />
-          </div>
         </div>
-      </div>
+        <p style="margin-top: 20px; color: #ffffff">
+          Designed by
+          <a
+            href="https://www.lethabodesignstudio.co.za/"
+            style="color: #ff0080; text-decoration: none"
+            target="_blank"
+          >
+            Lethabo Design Studio
+          </a>
+        </p>
+      </footer>
+      <!-- ✅ JS to handle loader -->
+      <script>
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("main-content").classList.remove("hidden");
+          }, 10000); // 10000 milliseconds = 10 seconds
+        });
+      </script>
+
+      <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          let slides = document.getElementsByClassName("slide");
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {
+            slideIndex = 1;
+          }
+          slides[slideIndex - 1].style.display = "block";
+          setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+      </script>
+
+      <script>
+        const toggle = document.getElementById("chat-toggle");
+        const chatBox = document.getElementById("chat-box");
+        const chatClose = document.getElementById("chat-close");
+        const chatBody = document.getElementById("chat-body");
+        const chatForm = document.getElementById("chat-form");
+        const userInput = document.getElementById("user-input");
+
+        const responses = {
+          "what is architecture":
+            "Architecture is the art and science of designing buildings and structures.",
+          "who founded future front innovators":
+            "Future Front Innovators was founded last year by a 19-year-old self-taught architect.",
+          "what do you do":
+            "We create futuristic, eco-friendly architectural designs for homes, businesses, and cities.",
+          hello: "Hello! 👋 How can I assist you with architecture today?",
+          hi: "Hi there! Feel free to ask me anything about architecture or our firm.",
+        };
+
+        const defaultReply =
+          "I'm still learning! Ask me something related to architecture or our company.";
+
+        toggle.onclick = () => (chatBox.style.display = "flex");
+        chatClose.onclick = () => (chatBox.style.display = "none");
+
+        chatForm.onsubmit = (e) => {
+          e.preventDefault();
+          const msg = userInput.value.trim();
+          if (!msg) return;
+
+          appendMessage("user", msg);
+          userInput.value = "";
+
+          const lowerMsg = msg.toLowerCase();
+          const reply = responses[lowerMsg] || defaultReply;
+
+          setTimeout(() => appendMessage("bot", reply), 800);
+        };
+
+        function appendMessage(sender, message) {
+          const msgDiv = document.createElement("div");
+          msgDiv.className = sender === "bot" ? "bot-msg" : "user-msg";
+          msgDiv.textContent = message;
+          chatBody.appendChild(msgDiv);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      </script>
     </div>
-
-    <footer>
-      <p>&copy; 2024 Future Front Innovators. All Rights Reserved.</p>
-      <div class="socials">
-        <a href="https://www.instagram.com/futurefrontinnovatorspty/"
-          ><i class="fab fa-instagram"></i> Instagram</a
-        >
-        <a href="https://www.facebook.com/profile.php?id=61555794677487"
-          ><i class="fab fa-facebook"></i> Facebook</a
-        >
-      </div>
-      <p style="margin-top: 20px; color: #ffffff">
-        Designed by
-        <a
-          href="https://www.lethabodesignstudio.co.za/"
-          style="color: #ff0080; text-decoration: none"
-          target="_blank"
-        >
-          Lethabo Design Studio
-        </a>
-      </p>
-    </footer>
-    <!-- ✅ JS to handle loader -->
-    <script>
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("main-content").classList.remove("hidden");
-        }, 10000); // 10000 milliseconds = 10 seconds
-      });
-    </script>
-
-    <script>
-      let slideIndex = 0;
-      showSlides();
-
-      function showSlides() {
-        let slides = document.getElementsByClassName("slide");
-        for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-          slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 5000); // Change image every 5 seconds
-      }
-    </script>
   </body>
 </html>
