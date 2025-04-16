@@ -145,21 +145,36 @@
         z-index: 1;
       }
 
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        50% {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+      }
+
       .future-overlay-text {
         position: absolute;
         top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 2.5rem;
-        font-weight: 500;
+        font-weight: 400;
         color: rgba(255, 255, 255, 0.85);
         text-align: center;
         text-transform: uppercase;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
         z-index: 2;
         pointer-events: none;
-        opacity: unset;
-        animation-play-state: inherit;
+
+        animation: fadeInOut 10s ease-in-out infinite;
       }
 
       @media (max-width: 768px) {
