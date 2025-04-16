@@ -47,6 +47,31 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
       defer
     ></script>
+    <script>
+      // Wait for the DOM to fully load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait 5 seconds, then hide the loader and show main content
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("main-content").classList.remove("hidden");
+        }, 5000);
+      });
+
+      // Close chatbox when clicking outside or tapping close button
+      document.addEventListener("click", function (e) {
+        const chatBox = document.querySelector(".chatbox");
+        const chatToggle = document.querySelector(".chat-toggle");
+
+        if (!chatBox.contains(e.target) && !chatToggle.contains(e.target)) {
+          chatBox.classList.remove("open"); // 'open' is a class that shows the chatbox
+        }
+      });
+
+      // Optional: Close after sending
+      document.querySelector(".send-btn").addEventListener("click", () => {
+        document.querySelector(".chatbox").classList.remove("open");
+      });
+    </script>
 
     <style>
       .orbitron {
@@ -144,6 +169,14 @@
       .assistant-btn:hover {
         transform: scale(1.1);
       }
+      .mobile-nav {
+        display: none;
+      }
+
+      .mobile-nav.open {
+        display: block;
+      }
+
       .slideshow-container {
         max-width: 100%;
         position: relative;
