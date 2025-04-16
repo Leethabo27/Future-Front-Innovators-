@@ -78,6 +78,126 @@
         }
       }
 
+      .ffi-profile-section {
+        padding: 5rem 2rem;
+        background-color: #fff;
+        color: #222;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+
+      .ffi-heading {
+        text-align: center;
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.05em;
+      }
+
+      .ffi-subheading {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+        letter-spacing: 2px;
+      }
+
+      .ffi-columns {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .ffi-column {
+        flex: 1 1 400px;
+        max-width: 600px;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #444;
+      }
+
+      .future-slideshow {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        overflow: hidden;
+      }
+
+      .future-slideshow-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .future-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .future-slide.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .future-overlay-text {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        z-index: 2;
+        pointer-events: none;
+        opacity: unset;
+        animation-play-state: inherit;
+      }
+
+      @media (max-width: 768px) {
+        .future-overlay-text {
+          font-size: 2rem;
+        }
+
+        .future-slideshow {
+          height: 40vh;
+        }
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap");
+
+      .ffi-quote-section {
+        padding: 6rem 2rem;
+        background: #f5f5f5;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        color: #333;
+      }
+
+      .quote-container blockquote {
+        font-size: 2rem;
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        position: relative;
+      }
+
+      .quote-container cite {
+        display: block;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        font-style: normal;
+        color: #666;
+      }
+
       /* Video Background */
       .video-background-container {
         position: relative;
@@ -124,7 +244,6 @@
         margin: 0;
         background-color: #f4f4f4;
       }
-
       .chatbot-container {
         position: fixed;
         bottom: 20px;
@@ -257,6 +376,7 @@
           font-size: 14px;
         }
       }
+
       footer {
         background-color: #000000;
         color: white;
@@ -346,6 +466,66 @@
           <a href="/about-us" class="block hover:underline">About Us</a>
           <a href="/contacts" class="block hover:underline">Contact Us</a>
         </div>
+
+        <section class="future-slideshow">
+          <div class="future-slideshow-wrapper">
+            <img src="sld1.jpg" class="future-slide active" alt="Slide 1" />
+            <img src="sld1111.jpg" class="future-slide" alt="Slide 3" />
+            <img src="slide2.jpg" class="future-slide" alt="Slide 4" />
+            <div class="future-overlay-text">Future Front Innovators</div>
+          </div>
+        </section>
+
+        <section class="ffi-quote-section">
+          <div class="quote-container">
+            <blockquote>
+              “Architecture should speak of its time and place, but yearn for
+              timelessness.”
+            </blockquote>
+            <cite>— Frank Gehry</cite>
+          </div>
+        </section>
+
+        <section class="ffi-profile-section">
+          <div class="container">
+            <h1 class="ffi-heading">PROFILE</h1>
+            <h3 class="ffi-subheading">FUTURE FRONT INNOVATORS</h3>
+
+            <div class="ffi-columns">
+              <div class="ffi-column">
+                <p>
+                  Future Front Innovators is a South African creative and
+                  tech-driven initiative dedicated to empowering the next
+                  generation of architects and designers. It was founded in 2024
+                  by a self-taught 19-year-old architect,
+                  <strong>Thapelo Semenya</strong>, alongside
+                  <strong>Lethabo Semenya</strong>, a graphic designer with a
+                  passion for visual storytelling.
+                </p>
+                <p>
+                  The initiative aims to teach and support young, talented
+                  individuals who want to pursue architecture and design by
+                  providing mentorship, hands-on experience, and real project
+                  exposure.
+                </p>
+              </div>
+
+              <div class="ffi-column">
+                <p>
+                  As a growing startup, Future Front Innovators is committed to
+                  building a community of creators and visionaries. Our mission
+                  is to create impactful, functional, and forward-thinking work
+                  that empowers youth while shaping spaces and identities.
+                </p>
+                <p>
+                  Our goal is to expand across South Africa and beyond—bridging
+                  creativity, innovation, and opportunity in the world of
+                  architecture and design.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div class="video-background-container">
           <video autoplay muted loop>
@@ -609,6 +789,20 @@
             chatBody.appendChild(msgDiv);
             chatBody.scrollTop = chatBody.scrollHeight;
           }
+        </script>
+
+        <script>
+          let currentSlide = 0;
+          const slides = document.querySelectorAll(".future-slide");
+          const totalSlides = slides.length;
+
+          function showNextSlide() {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add("active");
+          }
+
+          setInterval(showNextSlide, 5000); // every 5 seconds
         </script>
       </div>
     </div>
