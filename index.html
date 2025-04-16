@@ -280,335 +280,342 @@
     </style>
   </head>
   <body class="bg-black text-white font-sans">
-    <!-- ✅ Loader -->
-    <div id="loader">
-      <svg
-        class="animate-spin h-10 w-10 text-white"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle
-          class="opacity-25"
-          cx="12"
-          cy="12"
-          r="10"
-          stroke="currentColor"
-          stroke-width="4"
-        ></circle>
-        <path
-          class="opacity-75"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8v8z"
-        ></path>
-      </svg>
-      <span>Future Front Innovators</span>
-    </div>
-
-    <!-- ✅ Main Content -->
-    <div id="main-content" class="hidden">
-      <!-- Header with Logo and Menu -->
-      <header
-        class="p-4 flex items-center justify-between border-b border-gray-700"
-      >
-        <div class="flex items-center gap-3">
-          <img src="logo 1.png" alt="Logo" class="w-9 h-9" />
-        </div>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-6 text-sm md:text-base">
-          <a href="home.html" class="hover:underline">Home</a>
-          <a href="/about-us" class="hover:underline">About Us</a>
-          <a href="/contacts" class="hover:underline">Contact</a>
-        </nav>
-
-        <!-- Hamburger for mobile -->
-        <button @click="open = !open" class="md:hidden focus:outline-none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </header>
-
-      <!-- Mobile Menu -->
-      <div
-        x-show="open"
-        class="md:hidden bg-gray-900 border-b border-gray-700 px-4 py-3 space-y-2"
-      >
-        <a href="home.html" class="block hover:underline">Home</a>
-        <a href="/about-us" class="block hover:underline">About Us</a>
-        <a href="/contacts" class="block hover:underline">Contact Us</a>
-      </div>
-
-      <div class="video-background-container">
-        <video autoplay muted loop>
-          <source src="ffi video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="overlay"></div>
-      </div>
-
-      <div class="slogan">
-        From Passion to Structure: <br />
-        Building Beyond Boundaries
-      </div>
-
-      <section class="slideshow-container">
-        <div class="slide fade">
-          <img src="img15.jpg" alt="Slide 1" />
-          <div class="info">Luxury Residential Villa</div>
-        </div>
-        <div class="slide fade">
-          <img src="img12.jpg" alt="Slide 2" />
-          <div class="info">Modern house</div>
-        </div>
-      </section>
-
-      <!-- Body Grid (similar to Foster + Partners style) -->
-      <section
-        class="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        <div class="relative group">
-          <img
-            src="img17.jpg"
-            alt="Studio"
-            class="w-full h-full object-cover rounded-lg"
-          />
-          <div
-            class="absolute bottom-4 left-4 bg-black bg-opacity-60 p-2 rounded text-white text-lg font-semibold"
-          >
-            A modern house that blends sleek lines
-          </div>
-        </div>
-
-        <div
-          class="bg-gray-900 p-6 rounded-lg flex items-center justify-center"
+    <div x-data="{ open: false }" x-cloak>
+      <!-- ✅ Loader -->
+      <div id="loader">
+        <svg
+          class="animate-spin h-10 w-10 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
         >
-          <blockquote
-            class="text-sm sm:text-base text-gray-300 italic text-center"
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v8z"
+          ></path>
+        </svg>
+        <span>Future Front Innovators</span>
+      </div>
+
+      <!-- ✅ Main Content -->
+      <div id="main-content" class="hidden">
+        <!-- Header with Logo and Menu -->
+        <header
+          class="p-4 flex items-center justify-between border-b border-gray-700"
+        >
+          <div class="flex items-center gap-3">
+            <img src="logo 1.png" alt="Logo" class="w-9 h-9" />
+          </div>
+
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex space-x-6 text-sm md:text-base">
+            <a href="home.html" class="hover:underline">Home</a>
+            <a href="/about-us" class="hover:underline">About Us</a>
+            <a href="/contacts" class="hover:underline">Contact</a>
+          </nav>
+
+          <!-- Hamburger for mobile -->
+          <button @click="open = !open" class="md:hidden focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div
+          x-show="open"
+          class="md:hidden bg-gray-900 border-b border-gray-700 px-4 py-3 space-y-2"
+        >
+          <a href="home.html" class="block hover:underline">Home</a>
+          <a href="/about-us" class="block hover:underline">About Us</a>
+          <a href="/contacts" class="block hover:underline">Contact Us</a>
+        </div>
+
+        <div class="video-background-container">
+          <video autoplay muted loop>
+            <source src="ffi video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="overlay"></div>
+        </div>
+
+        <div class="slogan">
+          From Passion to Structure: <br />
+          Building Beyond Boundaries
+        </div>
+
+        <section class="slideshow-container">
+          <div class="slide fade">
+            <img src="img15.jpg" alt="Slide 1" />
+            <div class="info">Luxury Residential Villa</div>
+          </div>
+          <div class="slide fade">
+            <img src="img12.jpg" alt="Slide 2" />
+            <div class="info">Modern house</div>
+          </div>
+        </section>
+
+        <!-- Body Grid (similar to Foster + Partners style) -->
+        <section
+          class="p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <div class="relative group">
+            <img
+              src="img17.jpg"
+              alt="Studio"
+              class="w-full h-full object-cover rounded-lg"
+            />
+            <div
+              class="absolute bottom-4 left-4 bg-black bg-opacity-60 p-2 rounded text-white text-lg font-semibold"
+            >
+              A modern house that blends sleek lines
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 p-6 rounded-lg flex items-center justify-center"
           >
-            Future Front Innovators is a forward-thinking studio for sustainable
-            architecture, urbanism, and design. Founded in 2024 by a 19-year-old
-            self-taught architect with a vision to grow the studio into a global
-            force—and to inspire and empower the next generation of young
-            creatives.”
-            <br /><br />
-            <span class="font-bold not-italic">FFI</span>
-          </blockquote>
-        </div>
-
-        <img src="img5.jpg" alt="Grid Image" class="rounded-lg" />
-        <img src="img6.jpg" alt="Grid Image" class="rounded-lg" />
-        <img src="img7.jpg" alt="Grid Image" class="rounded-lg" />
-        <img src="img8.jpg" alt="Grid Image" class="rounded-lg" />
-      </section>
-      <section class="bg-white text-gray-900 py-16 px-6 md:px-20" id="projects">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold tracking-wide mb-2">
-            Projects
-          </h2>
-          <p class="text-gray-500">
-            Some of our most innovative architectural designs.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Project Card -->
-          <div class="relative group overflow-hidden rounded-xl shadow-lg">
-            <img
-              src="img14.jpg"
-              alt="Project 1"
-              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
+            <blockquote
+              class="text-sm sm:text-base text-gray-300 italic text-center"
             >
-              <h3 class="text-xl font-semibold mb-2">Modern Office Block</h3>
-              <p class="text-sm">
-                A state-of-the-art business hub designed for productivity and
-                elegance.
-              </p>
-            </div>
+              Future Front Innovators is a forward-thinking studio for
+              sustainable architecture, urbanism, and design. Founded in 2024 by
+              a 19-year-old self-taught architect with a vision to grow the
+              studio into a global force—and to inspire and empower the next
+              generation of young creatives.”
+              <br /><br />
+              <span class="font-bold not-italic">FFI</span>
+            </blockquote>
           </div>
 
-          <!-- Project Card -->
-          <div class="relative group overflow-hidden rounded-xl shadow-lg">
-            <img
-              src="img15.jpg"
-              alt="Project 2"
-              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
-            >
-              <h3 class="text-xl font-semibold mb-2">
-                Luxury Residential Space
-              </h3>
-              <p class="text-sm">
-                Designed with comfort, sustainability, and beauty in mind.
-              </p>
-            </div>
+          <img src="img5.jpg" alt="Grid Image" class="rounded-lg" />
+          <img src="img6.jpg" alt="Grid Image" class="rounded-lg" />
+          <img src="img7.jpg" alt="Grid Image" class="rounded-lg" />
+          <img src="img8.jpg" alt="Grid Image" class="rounded-lg" />
+        </section>
+        <section
+          class="bg-white text-gray-900 py-16 px-6 md:px-20"
+          id="projects"
+        >
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-wide mb-2">
+              Projects
+            </h2>
+            <p class="text-gray-500">
+              Some of our most innovative architectural designs.
+            </p>
           </div>
 
-          <!-- Project Card -->
-          <div class="relative group overflow-hidden rounded-xl shadow-lg">
-            <img
-              src="img16.jpg"
-              alt="Project 3"
-              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
-            >
-              <h3 class="text-xl font-semibold mb-2">Urban Revamp Project</h3>
-              <p class="text-sm">
-                Transforming cityscapes with creative and futuristic design
-                principles.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI Chat Assistant -->
-        <div class="chatbot-container">
-          <div class="chat-toggle" id="chat-toggle">💬</div>
-          <div class="chat-box" id="chat-box">
-            <div class="chat-header">
-              <span>AI Assistant</span>
-              <span id="chat-close">✖</span>
-            </div>
-            <div class="chat-body" id="chat-body">
-              <div class="bot-msg">
-                Hi 👋 I'm your architecture AI assistant. Ask me anything!
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Project Card -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+              <img
+                src="img14.jpg"
+                alt="Project 1"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
+              >
+                <h3 class="text-xl font-semibold mb-2">Modern Office Block</h3>
+                <p class="text-sm">
+                  A state-of-the-art business hub designed for productivity and
+                  elegance.
+                </p>
               </div>
             </div>
-            <form id="chat-form">
-              <input
-                type="text"
-                id="user-input"
-                placeholder="Ask a question..."
-                autocomplete="off"
+
+            <!-- Project Card -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+              <img
+                src="img15.jpg"
+                alt="Project 2"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
               />
-            </form>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
+              >
+                <h3 class="text-xl font-semibold mb-2">
+                  Luxury Residential Space
+                </h3>
+                <p class="text-sm">
+                  Designed with comfort, sustainability, and beauty in mind.
+                </p>
+              </div>
+            </div>
+
+            <!-- Project Card -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+              <img
+                src="img16.jpg"
+                alt="Project 3"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-white p-4"
+              >
+                <h3 class="text-xl font-semibold mb-2">Urban Revamp Project</h3>
+                <p class="text-sm">
+                  Transforming cityscapes with creative and futuristic design
+                  principles.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Explore Button -->
-        <div class="mt-10 text-center">
-          <a
-            href="more-projects.html"
-            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
-            >Explore More Projects</a
-          >
-        </div>
-      </section>
-      <footer>
-        <p>&copy; 2024 Future Front Innovators. All Rights Reserved.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/futurefrontinnovatorspty/"
-            ><i class="fab fa-instagram"></i> Instagram</a
-          >
-          <a href="https://www.facebook.com/profile.php?id=61555794677487"
-            ><i class="fab fa-facebook"></i> Facebook</a
-          >
-        </div>
-        <p style="margin-top: 20px; color: #ffffff">
-          Designed by
-          <a
-            href="https://www.lethabodesignstudio.co.za/"
-            style="color: #ff0080; text-decoration: none"
-            target="_blank"
-          >
-            Lethabo Design Studio
-          </a>
-        </p>
-      </footer>
-      <!-- ✅ JS to handle loader -->
-      <script>
-        window.addEventListener("load", () => {
-          setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("main-content").classList.remove("hidden");
-          }, 10000); // 10000 milliseconds = 10 seconds
-        });
-      </script>
+          <!-- AI Chat Assistant -->
+          <div class="chatbot-container">
+            <div class="chat-toggle" id="chat-toggle">💬</div>
+            <div class="chat-box" id="chat-box">
+              <div class="chat-header">
+                <span>AI Assistant</span>
+                <span id="chat-close">✖</span>
+              </div>
+              <div class="chat-body" id="chat-body">
+                <div class="bot-msg">
+                  Hi 👋 I'm your architecture AI assistant. Ask me anything!
+                </div>
+              </div>
+              <form id="chat-form">
+                <input
+                  type="text"
+                  id="user-input"
+                  placeholder="Ask a question..."
+                  autocomplete="off"
+                />
+              </form>
+            </div>
+          </div>
 
-      <script>
-        let slideIndex = 0;
-        showSlides();
+          <!-- Explore Button -->
+          <div class="mt-10 text-center">
+            <a
+              href="more-projects.html"
+              class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+              >Explore More Projects</a
+            >
+          </div>
+        </section>
+        <footer>
+          <p>&copy; 2024 Future Front Innovators. All Rights Reserved.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/futurefrontinnovatorspty/"
+              ><i class="fab fa-instagram"></i> Instagram</a
+            >
+            <a href="https://www.facebook.com/profile.php?id=61555794677487"
+              ><i class="fab fa-facebook"></i> Facebook</a
+            >
+          </div>
+          <p style="margin-top: 20px; color: #ffffff">
+            Designed by
+            <a
+              href="https://www.lethabodesignstudio.co.za/"
+              style="color: #ff0080; text-decoration: none"
+              target="_blank"
+            >
+              Lethabo Design Studio
+            </a>
+          </p>
+        </footer>
+        <!-- ✅ JS to handle loader -->
+        <script>
+          window.addEventListener("load", () => {
+            setTimeout(() => {
+              document.getElementById("loader").style.display = "none";
+              document
+                .getElementById("main-content")
+                .classList.remove("hidden");
+            }, 10000); // 10000 milliseconds = 10 seconds
+          });
+        </script>
 
-        function showSlides() {
-          let slides = document.getElementsByClassName("slide");
-          for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        <script>
+          let slideIndex = 0;
+          showSlides();
+
+          function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+              slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
           }
-          slideIndex++;
-          if (slideIndex > slides.length) {
-            slideIndex = 1;
+        </script>
+
+        <script>
+          const toggle = document.getElementById("chat-toggle");
+          const chatBox = document.getElementById("chat-box");
+          const chatClose = document.getElementById("chat-close");
+          const chatBody = document.getElementById("chat-body");
+          const chatForm = document.getElementById("chat-form");
+          const userInput = document.getElementById("user-input");
+
+          const responses = {
+            "what is architecture":
+              "Architecture is the art and science of designing buildings and structures.",
+            "who founded future front innovators":
+              "Future Front Innovators was founded last year by a 19-year-old self-taught architect.",
+            "what do you do":
+              "We create futuristic, eco-friendly architectural designs for homes, businesses, and cities.",
+            hello: "Hello! 👋 How can I assist you with architecture today?",
+            hi: "Hi there! Feel free to ask me anything about architecture or our firm.",
+          };
+
+          const defaultReply =
+            "I'm still learning! Ask me something related to architecture or our company.";
+
+          toggle.onclick = () => (chatBox.style.display = "flex");
+          chatClose.onclick = () => (chatBox.style.display = "none");
+
+          chatForm.onsubmit = (e) => {
+            e.preventDefault();
+            const msg = userInput.value.trim();
+            if (!msg) return;
+
+            appendMessage("user", msg);
+            userInput.value = "";
+
+            const lowerMsg = msg.toLowerCase();
+            const reply = responses[lowerMsg] || defaultReply;
+
+            setTimeout(() => appendMessage("bot", reply), 800);
+          };
+
+          function appendMessage(sender, message) {
+            const msgDiv = document.createElement("div");
+            msgDiv.className = sender === "bot" ? "bot-msg" : "user-msg";
+            msgDiv.textContent = message;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
           }
-          slides[slideIndex - 1].style.display = "block";
-          setTimeout(showSlides, 5000); // Change image every 5 seconds
-        }
-      </script>
-
-      <script>
-        const toggle = document.getElementById("chat-toggle");
-        const chatBox = document.getElementById("chat-box");
-        const chatClose = document.getElementById("chat-close");
-        const chatBody = document.getElementById("chat-body");
-        const chatForm = document.getElementById("chat-form");
-        const userInput = document.getElementById("user-input");
-
-        const responses = {
-          "what is architecture":
-            "Architecture is the art and science of designing buildings and structures.",
-          "who founded future front innovators":
-            "Future Front Innovators was founded last year by a 19-year-old self-taught architect.",
-          "what do you do":
-            "We create futuristic, eco-friendly architectural designs for homes, businesses, and cities.",
-          hello: "Hello! 👋 How can I assist you with architecture today?",
-          hi: "Hi there! Feel free to ask me anything about architecture or our firm.",
-        };
-
-        const defaultReply =
-          "I'm still learning! Ask me something related to architecture or our company.";
-
-        toggle.onclick = () => (chatBox.style.display = "flex");
-        chatClose.onclick = () => (chatBox.style.display = "none");
-
-        chatForm.onsubmit = (e) => {
-          e.preventDefault();
-          const msg = userInput.value.trim();
-          if (!msg) return;
-
-          appendMessage("user", msg);
-          userInput.value = "";
-
-          const lowerMsg = msg.toLowerCase();
-          const reply = responses[lowerMsg] || defaultReply;
-
-          setTimeout(() => appendMessage("bot", reply), 800);
-        };
-
-        function appendMessage(sender, message) {
-          const msgDiv = document.createElement("div");
-          msgDiv.className = sender === "bot" ? "bot-msg" : "user-msg";
-          msgDiv.textContent = message;
-          chatBody.appendChild(msgDiv);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }
-      </script>
+        </script>
+      </div>
     </div>
   </body>
 </html>
